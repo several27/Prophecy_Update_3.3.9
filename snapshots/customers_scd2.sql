@@ -8,16 +8,16 @@
   })
 }}
 
-WITH customers_raw AS (
+WITH customers_update AS (
 
   SELECT *
   
-  FROM {{ ref('customers_raw')}}
+  FROM {{ ref('customers_update')}}
 
 )
 
 SELECT *
 
-FROM customers_raw
+FROM customers_update
 
 {% endsnapshot %}

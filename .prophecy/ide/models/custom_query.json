@@ -1,7 +1,7 @@
 {
-  "id" : "customers",
+  "id" : "custom_query",
   "metainfo" : {
-    "label" : "customers",
+    "label" : "custom_query",
     "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -9,30 +9,35 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "materialized" : "view",
+        "materialized" : "table",
         "type" : "ModelConfig"
+      },
+      "userDefinedConfig" : {
+        "vars" : {
+          "id_threshold" : "3"
+        }
       }
     },
     "version" : 3
   },
   "processes" : {
-    "customers##IAN5DXxQ" : {
-      "id" : "customers##IAN5DXxQ",
+    "custom_query##F8dZykWl" : {
+      "id" : "custom_query##F8dZykWl",
       "component" : "TargetModel",
       "metadata" : {
-        "label" : "customers",
-        "x" : 80,
+        "label" : "custom_query",
+        "x" : 200,
         "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ],
-        "comment" : "Imports raw customer data for further analysis.",
+        "comment" : "Filters customer records based on a specified ID threshold.",
         "autoUpdateComment" : true
       },
       "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
+        "customQueryDisabled" : false,
+        "customQuery" : true,
         "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM customers_raw\n",
+        "query" : "SELECT * \n\nFROM customers_raw\n\nWHERE customer_id > {{ id_threshold }}",
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -40,7 +45,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "ZCpN0VtA",
+          "id" : "Ck3mWzgh",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -68,7 +73,7 @@
           "slug" : "customers_raw"
         } ],
         "outputs" : [ {
-          "id" : "DRSDaUfI",
+          "id" : "FlhJHMe2",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -99,13 +104,13 @@
         "autoUpdateOnRun" : false
       }
     },
-    "gjpgJOo5FD7CG_il-H0kQ" : {
-      "id" : "gjpgJOo5FD7CG_il-H0kQ",
+    "Y799nZ0BcIusF387qOurv" : {
+      "id" : "Y799nZ0BcIusF387qOurv",
       "component" : "Seed",
       "metadata" : {
         "label" : "customers_raw",
         "slug" : "customers_raw",
-        "x" : -260,
+        "x" : -60,
         "y" : 20,
         "phase" : 0
       },
@@ -119,7 +124,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "VrL-8fbAgW1UISFFgKuID",
+          "id" : "boQ_tcMtZcIgzo8Dbd7IE",
           "schema" : {
             "providerType" : "Databricks",
             "fields" : [ {
@@ -152,11 +157,11 @@
     }
   },
   "connections" : [ {
-    "id" : "G2_2i9nZV6fBPXjmLDL7Z$$TZ-Rq-wmNuscsBiZJh3q3",
-    "source" : "gjpgJOo5FD7CG_il-H0kQ",
-    "sourcePort" : "VrL-8fbAgW1UISFFgKuID",
-    "target" : "customers##IAN5DXxQ",
-    "targetPort" : "ZCpN0VtA"
+    "id" : "GZp1zkjFPHo9Q641i-WSH$$pXefOG-IRP66oubJaDyRP",
+    "source" : "Y799nZ0BcIusF387qOurv",
+    "sourcePort" : "boQ_tcMtZcIgzo8Dbd7IE",
+    "target" : "custom_query##F8dZykWl",
+    "targetPort" : "Ck3mWzgh"
   } ],
   "component" : "Model"
 }

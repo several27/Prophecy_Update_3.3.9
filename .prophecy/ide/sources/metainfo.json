@@ -8,7 +8,7 @@
     "editable" : true
   },
   "providerType" : "databricks",
-  "fabricId" : "3124",
+  "fabricId" : "16410",
   "prophecyIDEFolder" : {
     "name" : "",
     "children" : { },
@@ -74,7 +74,6 @@
         "name" : "prophecy_update_3_3_9",
         "tables" : {
           "customers" : {
-            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
@@ -99,7 +98,6 @@
             } ]
           },
           "customers_raw" : {
-            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
@@ -167,6 +165,10 @@
     "dependencies" : { },
     "prophecyProjectDependencies" : { }
   },
-  "entitiesToSync" : [ ],
+  "entitiesToSync" : [ {
+    "name" : "expression_builder",
+    "type" : "Model",
+    "syncedOnce" : true
+  } ],
   "frontEndLanguage" : "sql"
 }

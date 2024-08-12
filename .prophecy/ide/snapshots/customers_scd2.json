@@ -33,7 +33,7 @@
         "customQueryDisabled" : true,
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM customers_raw\n",
+        "query" : "SELECT * \n\nFROM customers_update\n",
         "incrementalKey" : false,
         "incremental" : {
           "expression" : "true"
@@ -43,7 +43,6 @@
         "inputs" : [ {
           "id" : "VlhigBmW",
           "schema" : {
-            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
@@ -67,12 +66,11 @@
               }
             } ]
           },
-          "slug" : "customers_raw"
+          "slug" : "customers_update"
         } ],
         "outputs" : [ {
           "id" : "S1ETcMfI",
           "schema" : {
-            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
@@ -102,19 +100,19 @@
         "autoUpdateOnRun" : false
       }
     },
-    "S0wlMLf5LK9QjIHPFxsuh" : {
-      "id" : "S0wlMLf5LK9QjIHPFxsuh",
+    "n8BP8o9O4NRELpw6XnQui" : {
+      "id" : "n8BP8o9O4NRELpw6XnQui",
       "component" : "Seed",
       "metadata" : {
-        "label" : "customers_raw",
-        "slug" : "customers_raw",
-        "x" : -160,
+        "label" : "customers_update",
+        "slug" : "customers_update",
+        "x" : -140,
         "y" : 20,
         "phase" : 0
       },
       "properties" : {
         "table" : {
-          "name" : "customers_raw",
+          "name" : "customers_update",
           "sourceType" : "Seed",
           "alias" : ""
         }
@@ -122,9 +120,8 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "nwHI9yNRq7eU6QmGp8qua",
+          "id" : "xBP3U8T0B9irYGG-khdIL",
           "schema" : {
-            "entityType" : "",
             "providerType" : "Databricks",
             "fields" : [ {
               "name" : "customer_id",
@@ -156,9 +153,9 @@
     }
   },
   "connections" : [ {
-    "id" : "VvHN5zCXFo0oR7at5OzQJ$$iAaNysveg8mDxOC225wfI",
-    "source" : "S0wlMLf5LK9QjIHPFxsuh",
-    "sourcePort" : "nwHI9yNRq7eU6QmGp8qua",
+    "id" : "mDCb6W_RorlfS0kKV32-r$$Q8buginWNbJfa0Npj30Zm",
+    "source" : "n8BP8o9O4NRELpw6XnQui",
+    "sourcePort" : "xBP3U8T0B9irYGG-khdIL",
     "target" : "customers_scd2##xM8GNuCT",
     "targetPort" : "VlhigBmW"
   } ],
