@@ -1,0 +1,17 @@
+---
+version: 2
+models:
+- name: "customers"
+  columns:
+  - name: "customer_id"
+    dataType:
+      type: "Integer"
+  - name: "first_name"
+    dataType:
+      type: "String"
+  - name: "last_name"
+    dataType:
+      type: "String"
+  - name: "updated_at"
+    dataType:
+      type: "Date"

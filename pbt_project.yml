@@ -23,8 +23,70 @@ functions:
   airflowFunctions: {}
   businessRules: {}
 subgraphs: {}
-sqlModels: {}
-sqlSnapshots: {}
+sqlModels:
+  .prophecy/metadata/sqlmodels/customers:
+    name: customers
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+      - name: updated_at
+        dataType:
+          type: Date
+    description: null
+    author: maciej@prophecy.io
+    files:
+    - models/customers.sql
+    - .prophecy/ide/models/customers.json
+    - models/schema.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-08-12 01:37:24'
+sqlSnapshots:
+  .prophecy/metadata/sqlsnapshots/customers_scd2:
+    name: customers_scd2
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+      - name: updated_at
+        dataType:
+          type: Date
+    description: null
+    author: maciej@prophecy.io
+    files:
+    - snapshots/customers_scd2.sql
+    - .prophecy/ide/snapshots/customers_scd2.json
+    - snapshots/schema.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+      seeds: []
+      sources: []
+      snapshots: []
+    createdAt: '2024-08-12 18:59:07'
 sqlTests: {}
 sqlMacros:
   .prophecy/metadata/sqlmacros/generate_schema_name:
@@ -36,7 +98,30 @@ sqlMacros:
     - macros/generate_schema_name.sql
     - .prophecy/ide/macros/generate_schema_name.json
     createdAt: '2024-08-12 01:25:27'
-sqlSeeds: {}
+sqlSeeds:
+  .prophecy/metadata/sqlseeds/customers_raw:
+    name: customers_raw
+    schema:
+      entityType: ''
+      providerType: Databricks
+      fields:
+      - name: customer_id
+        dataType:
+          type: Integer
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+      - name: updated_at
+        dataType:
+          type: Date
+    description: null
+    author: maciej@prophecy.io
+    files:
+    - seeds/customers_raw.csv
+    createdAt: '2024-08-12 01:37:07'
 sqlSources: {}
 sqlUnreferencedSources: {}
 sqlPipeline:

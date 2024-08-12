@@ -1,0 +1,166 @@
+{
+  "id" : "customers_scd2",
+  "metainfo" : {
+    "label" : "customers_scd2",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "strategy" : "\"timestamp\"",
+        "updated_at" : "\"updated_at\"",
+        "target_schema" : "\"prophecy_update_3_3_9\"",
+        "unique_key" : "\"customer_id\"",
+        "type" : "SnapshotConfig"
+      }
+    },
+    "version" : 0
+  },
+  "processes" : {
+    "customers_scd2##xM8GNuCT" : {
+      "id" : "customers_scd2##xM8GNuCT",
+      "component" : "TargetSnapshot",
+      "metadata" : {
+        "label" : "customers_scd2",
+        "x" : 80,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM customers_raw\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "VlhigBmW",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "customers_raw"
+        } ],
+        "outputs" : [ {
+          "id" : "S1ETcMfI",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "S0wlMLf5LK9QjIHPFxsuh" : {
+      "id" : "S0wlMLf5LK9QjIHPFxsuh",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "customers_raw",
+        "slug" : "customers_raw",
+        "x" : -160,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "customers_raw",
+          "sourceType" : "Seed",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "nwHI9yNRq7eU6QmGp8qua",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "updated_at",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "VvHN5zCXFo0oR7at5OzQJ$$iAaNysveg8mDxOC225wfI",
+    "source" : "S0wlMLf5LK9QjIHPFxsuh",
+    "sourcePort" : "nwHI9yNRq7eU6QmGp8qua",
+    "target" : "customers_scd2##xM8GNuCT",
+    "targetPort" : "VlhigBmW"
+  } ],
+  "component" : "Snapshot"
+}
