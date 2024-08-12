@@ -27,7 +27,6 @@ sqlModels:
   .prophecy/metadata/sqlmodels/customers:
     name: customers
     schema:
-      entityType: ''
       providerType: Databricks
       fields:
       - name: customer_id
@@ -59,7 +58,6 @@ sqlSnapshots:
   .prophecy/metadata/sqlsnapshots/customers_scd2:
     name: customers_scd2
     schema:
-      entityType: ''
       providerType: Databricks
       fields:
       - name: customer_id
@@ -102,7 +100,6 @@ sqlSeeds:
   .prophecy/metadata/sqlseeds/customers_raw:
     name: customers_raw
     schema:
-      entityType: ''
       providerType: Databricks
       fields:
       - name: customer_id
